@@ -16,17 +16,18 @@ Scanner::Scanner(bool webCam)
 	web=webCam;
 	proj=new Projector(proj_w,proj_h);
 	whiteImg = cv::Mat::ones(proj_h,proj_w,CV_8U)*255;
-	EdsInitializeSDK();
+	EdsInitializeSDK(); //TODO
 }
 
 
 Scanner::~Scanner(void)
 {
-	EdsTerminateSDK();
+	EdsTerminateSDK(); //TODO
 		///Destroy the window
 	delete proj;
 }
 
+//take calibration image
 bool Scanner::capturePhotoSequence(CameraController *camera)
 {
 
@@ -192,6 +193,7 @@ void Scanner::capturePaterns(CameraController *camera[],int camCount)
 
 }
 
+//capture photo for calibration
 bool Scanner::capturePhotoAllCams(CameraController *cameras[],int camCount)
 {
 

@@ -203,7 +203,7 @@ void Reconstructor::loadCamImgs( std::string folder,std::string prefix,std::stri
 			exit(-1);
 		}
 
-		//auto contrast
+		//auto contrast //Yang TODO Why need to contrast?
 		if(autoContrast)
 		{
 			Utilities::autoContrast(tmp,tmp);
@@ -275,7 +275,7 @@ void Reconstructor::computeShadows()
 			blackVal  = (float) Utilities::matGet2D( camImgs[1], i, j);
 			whiteVal  = (float) Utilities::matGet2D( camImgs[0], i, j);
 
-			if(whiteVal - blackVal > blackThreshold)
+			if(whiteVal - blackVal > blackThreshold)//Yang: what is behind the formula?
 			{
 				Utilities::matSet2D(shadowMask,i,j,1);
 			}
@@ -364,8 +364,8 @@ void Reconstructor::cam2WorldSpace(VirtualCamera cam, cv::Point3f &p)
 	tmpPoint.at<float>(0) = p.x;
 	tmpPoint.at<float>(1) = p.y;
 	tmpPoint.at<float>(2) = p.z;
-
-	tmp = -cam.rotationMatrix.t() * cam.translationVector ;
+		
+	tmp = -cam.rotationMatrix.t() * cam.translationVector ; //TODO:??? what is behind the formular?
 	tmpPoint = cam.rotationMatrix.t() * tmpPoint;
 
 	p.x = tmp.at<float>(0) + tmpPoint.at<float>(0);
@@ -390,7 +390,7 @@ bool Reconstructor::getProjPixel(int x, int y, cv::Point &p_out)
 	{
 		//get pixel intensity for regular pattern projection and it's inverse 
 		double val1, val2;
-		val1 = Utilities::matGet2D(camImgs[count * 2 + 2   ],x,y);
+		val1 = Utilities::matGet2D(camImgs[count * 2 + 2   ],x,y);//TODO:
 		val2 = Utilities::matGet2D(camImgs[count * 2 + 2 +1],x,y);
 		
 		//check if intensity deference is in a valid rage
@@ -413,7 +413,7 @@ bool Reconstructor::getProjPixel(int x, int y, cv::Point &p_out)
 
 		double val1, val2;
 
-		val1 = Utilities::matGet2D(camImgs[count*2+2+numOfColBits*2],x,y);
+		val1 = Utilities::matGet2D(camImgs[count*2+2+numOfColBits*2],x,y);//TODO
 		val2 = Utilities::matGet2D(camImgs[count*2+2+numOfColBits*2+1],x,y);
 
 		if(abs(val1-val2) < whiteThreshold )  //check if the difference between the values of the normal and it's inverce projection image is valid

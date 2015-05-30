@@ -386,7 +386,7 @@ void Utilities::autoContrast(cv::Mat img_in, cv::Mat &img_out)
 	for(int i=0; i<3; i++)
 	{
 		cv::minMaxIdx(bgr[i],&min,&max);
-		min += 255*0.05;
+		min += 255*0.05; 
 			
 		double a = 255/(max-min);
 		bgr[i]-=min;

@@ -80,7 +80,8 @@ int VirtualCamera::loadMatrix(cv::Mat &matrix,int rows,int cols ,std::string fil
 	std:: ifstream in1; 
 	in1.open(file.c_str());
 	
-	if(in1==NULL)
+	//if(in1==NULL) //Yang
+	if (in1.fail())
 	{
 		std::cout<<"Error loading file "<<file.c_str()<<"\n";
 		return -1;

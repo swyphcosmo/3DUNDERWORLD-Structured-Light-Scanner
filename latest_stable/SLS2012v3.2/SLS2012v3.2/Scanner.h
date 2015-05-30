@@ -38,8 +38,8 @@ using std::max;
 #include <atlimage.h>
 #include "Projector.h"
 
-#define SCANNER_USE_WEBCAM true
-#define SCANNER_USE_CANON false
+#define SCANNER_USE_WEBCAM false //Yang: originally is true 
+#define SCANNER_USE_CANON true //Yang:originally is false
 
 #define SCAN_ONLY true
 #define SCAN_N_CALIB false

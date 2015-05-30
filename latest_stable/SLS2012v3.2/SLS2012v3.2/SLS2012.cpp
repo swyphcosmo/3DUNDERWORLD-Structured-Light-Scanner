@@ -69,6 +69,7 @@ void projectGraysOnly()
 
 }
 
+//Yang: just rename images using increasing number;
 int renameDataSet()
 {	
 
@@ -444,7 +445,7 @@ void scan()
 	scanner = new Scanner(SCANNER_USE_CANON);
 
 	int numOfCams;
-	CameraController *tmp = new CameraController(false);
+	CameraController *tmp = new CameraController(SCANNER_USE_CANON);
 	numOfCams = tmp->getNumOfCams();
 
 	CameraController **cameras = new CameraController*[numOfCams];
@@ -453,7 +454,7 @@ void scan()
 
 	for(int i=1; i<numOfCams; i++)
 	{
-		cameras[i] = new CameraController(false);
+		cameras[i] = new CameraController(SCANNER_USE_CANON);
 	}
 
 	scanner->capturePaterns(cameras,numOfCams);
@@ -471,7 +472,7 @@ void captureCalibrationImagesAndScan()
 	scanner = new Scanner(SCANNER_USE_CANON);
 
 	int numOfCams;
-	CameraController *tmp = new CameraController(false);
+	CameraController *tmp = new CameraController(SCANNER_USE_CANON);
 	numOfCams = tmp->getNumOfCams();
 
 	CameraController **cameras = new CameraController*[numOfCams];
@@ -480,7 +481,7 @@ void captureCalibrationImagesAndScan()
 
 	for(int i=1; i<numOfCams; i++)
 	{
-		cameras[i] = new CameraController(false);
+		cameras[i] = new CameraController(SCANNER_USE_CANON);
 	}
 
 	bool continue_val = true;
@@ -508,6 +509,7 @@ void captureCalibrationImagesAndScan()
 			
 	}
 
+	//Yang:take one image for reconstruction
 	continue_val = scanner->capturePhotoAllCams(cameras,numOfCams);
 
 	//if user dont want ot continue break

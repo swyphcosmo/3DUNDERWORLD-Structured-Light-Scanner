@@ -202,6 +202,11 @@
     <ClCompile Include="VirtualCamera.cpp" />
     <ClCompile Include="WebCam.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="slsConfig.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

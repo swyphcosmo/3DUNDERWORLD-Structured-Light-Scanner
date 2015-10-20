@@ -55,15 +55,15 @@ void projectGraysOnly()
 	int key = cvWaitKey(10);
 	while(true)
 	{
-		key = cvWaitKey(10);
+		key = cvWaitKey(10);//wait for 10 millisecond
 		proj->showImg( grayCode->getImg(i));
 
-		if(key == 13)
+		if(key == 13)//enter
 			i++;
 
 		if(i == (grayCode->getNumOfImgs()))
 			i=0;
-		if(key == 27)
+		if(key == 27) //esc
 			break;
 	}
 
@@ -338,7 +338,7 @@ void reconstruct()
 	else
 		reconstructor->disableRaySampling();
 
-	//recontruct
+	//reconstruct
 	reconstructor->runReconstruction();
 	
 	//Export mesh
@@ -375,6 +375,7 @@ void generateGrayCodes()
 	delete gray;
 }
 
+//Yang: Separately calibrate each camera, without projector!!! Why? 
 void calibration()
 {
 	//change directory
@@ -399,9 +400,9 @@ void calibration()
 		calib->loadCameraImgs(path.c_str());
 	
 		calib->extractImageCorners();
-		calib->calibrateCamera();
+		calib->calibrateCamera();//Yang:intrinsic params: focus length and principle cener, distortion
 	
-		calib->findCameraExtrisics();
+		calib->findCameraExtrisics();//Yang:extrinsic params: rotation and translation
 
 		//export txt files
 		std::string file_name;

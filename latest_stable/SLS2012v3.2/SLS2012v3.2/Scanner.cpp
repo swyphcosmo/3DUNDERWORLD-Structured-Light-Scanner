@@ -27,7 +27,7 @@ Scanner::~Scanner(void)
 	delete proj;
 }
 
-//take calibration image
+//take calibration image from one camera
 bool Scanner::capturePhotoSequence(CameraController *camera)
 {
 
@@ -75,7 +75,7 @@ bool Scanner::capturePhotoSequence(CameraController *camera)
 
 }
 
-//capture photos for calibration, photos will saved on path
+//capture photos for calibration from one camera, photos will saved on path
 //this is curently available only for 
 bool Scanner::capturePhotoSequence(CameraController *camera, char* path)
 {
@@ -183,7 +183,7 @@ void Scanner::capturePaterns(CameraController *camera[],int camCount)
 		
 		
 
-		key=cvWaitKey(100);
+		key=cvWaitKey(100);//Yang:interval time for each capture
 	
 		if(key == 27)
 			break;

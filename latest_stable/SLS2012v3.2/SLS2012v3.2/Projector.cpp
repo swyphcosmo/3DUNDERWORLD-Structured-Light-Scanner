@@ -30,7 +30,7 @@ void Projector::initProjectorWindow()
 {
 	cvNamedWindow("Projector Window",CV_WINDOW_NORMAL);
 	cvResizeWindow("Projector Window",width,height);
-	cvMoveWindow("Projector Window", width+316, -20);
+	cvMoveWindow("Projector Window", width+316, -20);//TODO:Yang
 	cvSetWindowProperty("Projector Window", CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
 }
 

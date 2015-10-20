@@ -86,7 +86,7 @@ void WebCam::captureImg(char* dirPath)
 	cvWaitKey(20);
 	resampled_image=cvQueryFrame(capture);
 	cvWaitKey(20);
-	resampled_image=cvQueryFrame(capture);
+	resampled_image=cvQueryFrame(capture);//Yang: why do two times capture?
 
 	cvSaveImage(path.str().c_str(), resampled_image);
 	saveCount++;

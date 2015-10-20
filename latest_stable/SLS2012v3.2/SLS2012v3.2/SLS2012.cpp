@@ -402,7 +402,7 @@ void calibration()
 		calib->extractImageCorners();
 		calib->calibrateCamera();//Yang:intrinsic params: focus length and principle cener, distortion
 	
-		calib->findCameraExtrisics();//Yang:extrinsic params: rotation and translation
+		calib->findCameraExtrisics();//Yang:extrinsic params: rotation and translation 
 
 		//export txt files
 		std::string file_name;

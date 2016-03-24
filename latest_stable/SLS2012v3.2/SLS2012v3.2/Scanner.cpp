@@ -16,13 +16,13 @@ Scanner::Scanner(bool webCam)
 	web=webCam;
 	proj=new Projector(proj_w,proj_h);
 	whiteImg = cv::Mat::ones(proj_h,proj_w,CV_8U)*255;
-	EdsInitializeSDK(); //TODO
+	// EdsInitializeSDK(); //TODO
 }
 
 
 Scanner::~Scanner(void)
 {
-	EdsTerminateSDK(); //TODO
+	// EdsTerminateSDK(); //TODO
 		///Destroy the window
 	delete proj;
 }

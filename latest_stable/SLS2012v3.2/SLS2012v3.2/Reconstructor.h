@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
-#include <conio.h>
+#include <curses.h>
 #include "GrayCodes.h"
 #include "VirtualCamera.h"
 #include "Utilities.h"
@@ -67,18 +67,18 @@ class Reconstructor
 		cv::vector<cv::Point> **camsPixels;
 		cv::vector<cv::Point> *camPixels; //general functions use this instead of cam1Pixels or cam2Pixels
 
-		void Reconstructor::loadCamImgs(std::string folder,std::string prefix,std::string suffix);
+		void loadCamImgs(std::string folder,std::string prefix,std::string suffix);
 		void unloadCamImgs();
 
 		void computeShadows();
 
-		void Reconstructor::cam2WorldSpace(VirtualCamera cam, cv::Point3f &p);
+		void cam2WorldSpace(VirtualCamera cam, cv::Point3f &p);
 		
-		bool Reconstructor::getProjPixel(int x, int y, cv::Point &p_out);
+		bool getProjPixel(int x, int y, cv::Point &p_out);
 
 		void decodePaterns();
 
-		void Reconstructor::triangulation(cv::vector<cv::Point> *cam1Pixels, VirtualCamera cameras1, cv::vector<cv::Point> *cam2Pixels, VirtualCamera cameras2, int cam1index, int cam2index);
+		void triangulation(cv::vector<cv::Point> *cam1Pixels, VirtualCamera cameras1, cv::vector<cv::Point> *cam2Pixels, VirtualCamera cameras2, int cam1index, int cam2index);
 		
 		std::string *camFolder;
 		std::string *imgPrefix;
@@ -109,7 +109,7 @@ class Reconstructor
 		bool saveShadowMask_;
 
 		//access
-		int Reconstructor::ac(int x,int y)
+		int ac(int x,int y)
 		{
 			return x*proj_h+y;
 		}

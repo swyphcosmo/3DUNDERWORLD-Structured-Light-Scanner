@@ -11,18 +11,18 @@
 
 #include "cv.h"
 #include "highgui.h"
-#include <conio.h>
+#include <curses.h>
 
-#include "EDSDK.h"
-#include "EDSDKErrors.h"
-#include "EDSDKTypes.h"
+// #include "EDSDK.h"
+// #include "EDSDKErrors.h"
+// #include "EDSDKTypes.h"
 
 #define STRICT
-#include <windows.h>
+// #include <windows.h>
 #include <algorithm>
 using std::min;
 using std::max;
-#include <gdiplus.h>
+// #include <gdiplus.h>
 
 #include <iostream>
 #include <fstream>

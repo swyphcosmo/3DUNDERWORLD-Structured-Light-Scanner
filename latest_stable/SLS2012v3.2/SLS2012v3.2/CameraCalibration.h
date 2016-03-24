@@ -9,12 +9,12 @@
 
 #pragma once
 
-#include <conio.h>
+#include <curses.h>
 #include <iostream>
 #include "cv.h"
 #include "highgui.h"
 #include "Utilities.h"
-#include <direct.h>
+// #include <direct.h>
 
 
 
@@ -70,8 +70,8 @@ private:
 	void						perspectiveTransformation(cv::vector<cv::Point2f> corners_in,cv::Mat homoMatrix, cv::vector<cv::Point3f> &points_out);
 	void						undistortCameraImgPoints(cv::vector<cv::Point2f> points_in,cv::vector<cv::Point2f> &points_out);
 	
-	cv::vector<cv::vector<cv::Point2f>> imgBoardCornersCam;//Yang: corners position in images of one camera in few views
-	cv::vector<cv::vector<cv::Point3f>> objBoardCornersCam;//Yang: corners position from [0,0] at the first corner
+	cv::vector< cv::vector<cv::Point2f> > imgBoardCornersCam;//Yang: corners position in images of one camera in few views
+	cv::vector< cv::vector<cv::Point3f> > objBoardCornersCam;//Yang: corners position from [0,0] at the first corner
 	
 	//images
 	cv::Vector<cv::Mat> calibImgs;

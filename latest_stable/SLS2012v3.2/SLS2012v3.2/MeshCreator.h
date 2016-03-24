@@ -25,8 +25,8 @@ private:
 
 	int *pixelNum;
 	PointCloudImage *cloud;
-	int MeshCreator::access(int i,int j);
-	int MeshCreator::access(int i,int j, int z);
+	int access(int i,int j);
+	int access(int i,int j, int z);
 	int w;
 	int h;
 

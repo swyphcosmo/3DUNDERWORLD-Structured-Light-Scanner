@@ -18,24 +18,24 @@ using std::ofstream;
 #include "cv.h"
 #include "highgui.h"
 
-#include "EDSDK.h"
-#include "EDSDKErrors.h"
-#include "EDSDKTypes.h"
+// #include "EDSDK.h"
+// #include "EDSDKErrors.h"
+// #include "EDSDKTypes.h"
 
 #define STRICT
-#include <windows.h>
+// #include <windows.h>
 #include <algorithm>
 using std::min;
 using std::max;
-#include <gdiplus.h>
+// #include <gdiplus.h>
 #include "GrayCodes.h"
 
-#include <conio.h>
+#include <curses.h>
 
 #include "CameraController.h"
 #include "WebCam.h"
-#include "CanonCamera.h"
-#include <atlimage.h>
+// #include "CanonCamera.h"
+// #include <atlimage.h>
 #include "Projector.h"
 
 #define SCANNER_USE_WEBCAM false //Yang: originally is true 

@@ -14,12 +14,12 @@
 Reconstructor::Reconstructor(int numOfCams_)
 {
 	numOfCams = numOfCams_;
-	pathSet=false;
+	pathSet=new bool( false );
 
-	shadowMask = NULL;
+	shadowMask = cv::Mat();
 
-	decRows = NULL;
-	decCols = NULL;
+	decRows = cv::Mat();
+	decCols = cv::Mat();
 
 	points3DProjView = NULL;
 

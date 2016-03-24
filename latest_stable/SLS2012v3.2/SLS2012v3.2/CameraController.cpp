@@ -7,7 +7,7 @@
 //* License: Check the file License.md                                                                       *
 //------------------------------------------------------------------------------------------------------------
 
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "CameraController.h"
 
 
@@ -17,16 +17,16 @@ CameraController::CameraController(bool webFlag)
 
 	if(webFlag == true)
 		webCam = new WebCam(webCamID,cam_w,cam_h);
-	else
-		canonCam = new CanonCamera();
+	// else
+		// canonCam = new CanonCamera();
 }
 
 CameraController::~CameraController(void)
 {
 	if(web == true)
 		delete webCam;
-	else
-		delete canonCam;
+	// else
+		// delete canonCam;
 }
 
 bool CameraController::isWebCam()
@@ -44,48 +44,48 @@ void CameraController::startLiveview()
 {
 	if(web == true)
 		webCam->startLiveview();
-	else
-		canonCam->startLiveview();
+	// else
+		// canonCam->startLiveview();
 }
 
 void CameraController::endLiveview()
 {
 	if(web == true)
 		webCam->endLiveview();
-	else
-		canonCam->endLiveview();
+	// else
+		// canonCam->endLiveview();
 }
 
 void CameraController::UpdateView()
 {
 	if(web==true)
 		webCam->UpdateView();
-	else
-		canonCam->UpdateView();
+	// else
+		// canonCam->UpdateView();
 }
 
 void CameraController::captureImg()
 {
 	if(web==true)
 		webCam->captureImg();
-	else
-		canonCam->captureImg();
+	// else
+		// canonCam->captureImg();
 }
 
 void CameraController::captureImg(char* path)
 {
 	if(web)
 		webCam->captureImg(path);
-	else
-		canonCam->captureImg();
+	// else
+		// canonCam->captureImg();
 }
 
 int CameraController::getNumOfCams()
 {
 	if(web==true)
 		return webCam->getNumOfCams();
-	else
-		return canonCam->getNumOfCams();
+	// else
+		// return canonCam->getNumOfCams();
 }
 
 //only available for webCams

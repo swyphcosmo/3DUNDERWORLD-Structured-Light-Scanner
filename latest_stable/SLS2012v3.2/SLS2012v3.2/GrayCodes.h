@@ -41,8 +41,8 @@ class GrayCodes	{
 
 		void save();
 		static int grayToDec(cv::vector<bool> gray);
-		int GrayCodes::getNumOfRowBits();
-		int GrayCodes::getNumOfColBits();
+		int getNumOfRowBits();
+		int getNumOfColBits();
 		
 	protected:
 		IplImage* grayCodes[GRAY_MAX_NUM];

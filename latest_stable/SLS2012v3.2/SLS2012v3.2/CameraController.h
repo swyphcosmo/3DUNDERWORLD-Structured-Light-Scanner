@@ -10,7 +10,7 @@
 #pragma once
 
 #include "WebCam.h"
-#include "CanonCamera.h"
+// #include "CanonCamera.h"
 
 class CameraController
 {
@@ -39,6 +39,6 @@ class CameraController
 	private:
 		bool web;
 		WebCam *webCam;
-		CanonCamera *canonCam;
+		// CanonCamera *canonCam;
 };
 

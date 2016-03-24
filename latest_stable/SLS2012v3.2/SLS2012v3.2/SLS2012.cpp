@@ -18,8 +18,8 @@
 #include "PointCloudImage.h"
 #include "MeshCreator.h"
 #include "CameraCalibration.h"
-#include <direct.h>
-#include <windows.h>
+// #include <direct.h>
+// #include <windows.h>
 
 
 int proj_h;
@@ -72,84 +72,84 @@ void projectGraysOnly()
 //Yang: just rename images using increasing number;
 int renameDataSet()
 {	
+	// TODO
+	// WIN32_FIND_DATA data;
+	// HANDLE h;
 
-	WIN32_FIND_DATA data;
-	HANDLE h;
+	// char sel = 0;
 
-	char sel = 0;
+	// while( sel!='j' && sel != 't' && sel != 'p')
+	// {
+	// 	std::cout<<"Please specify image format, 'j' for jpg, 't' for tif or 'p' for png.\n"; 
+	// 	std::cin>>sel;
+	// }
+	// char *format; 
 
-	while( sel!='j' && sel != 't' && sel != 'p')
-	{
-		std::cout<<"Please specify image format, 'j' for jpg, 't' for tif or 'p' for png.\n"; 
-		std::cin>>sel;
-	}
-	char *format; 
+	// if(sel=='j')
+	// {
+	// 	h = FindFirstFile(L"*.jpg",&data);
+	// 	format = ".jpg";
+	// }
+	// else if(sel=='t')
+	// {
+	// 	format = ".tif";
+	// 	h = FindFirstFile(L"*.tif",&data);
+	// }
+	// else if(sel=='p')
+	// {
+	// 	format = ".png";
+	// 	h = FindFirstFile(L"*.png",&data);
+	// }
 
-	if(sel=='j')
-	{
-		h = FindFirstFile(L"*.jpg",&data);
-		format = ".jpg";
-	}
-	else if(sel=='t')
-	{
-		format = ".tif";
-		h = FindFirstFile(L"*.tif",&data);
-	}
-	else if(sel=='p')
-	{
-		format = ".png";
-		h = FindFirstFile(L"*.png",&data);
-	}
+	// int count = 1;
 
-	int count = 1;
+	// std::vector<std::string> list;
 
-	std::vector<std::string> list;
+	// if( h!=INVALID_HANDLE_VALUE ) 
+	// {
+	// 	int numOfFiles=0;
 
-	if( h!=INVALID_HANDLE_VALUE ) 
-	{
-		int numOfFiles=0;
+	// 	do
+	// 	{
+	// 		char*  nPtr = new char [lstrlen( data.cFileName ) + 1];
 
-		do
-		{
-			char*  nPtr = new char [lstrlen( data.cFileName ) + 1];
+	// 		for( int i = 0; i < lstrlen( data.cFileName ); i++ )
+	// 			nPtr[i] = char( data.cFileName[i] );
 
-			for( int i = 0; i < lstrlen( data.cFileName ); i++ )
-				nPtr[i] = char( data.cFileName[i] );
+	// 		nPtr[lstrlen( data.cFileName )] = '\0';
 
-			nPtr[lstrlen( data.cFileName )] = '\0';
+	// 		list.push_back(nPtr);
 
-			list.push_back(nPtr);
+	// 	} 
+	// 	while(FindNextFile(h,&data));
 
-		} 
-		while(FindNextFile(h,&data));
-
-		for(int i = 0; i<list.size(); i++)
-		{
+	// 	for(int i = 0; i<list.size(); i++)
+	// 	{
 			
 
-			std::stringstream path1,path2;
-			path1 << list[i];
+	// 		std::stringstream path1,path2;
+	// 		path1 << list[i];
 			
-			if(count < 10)
-				path2<<'0';
+	// 		if(count < 10)
+	// 			path2<<'0';
 
-			path2 << count << format;
+	// 		path2 << count << format;
 		
-			(char *)data.cFileName;
+	// 		(char *)data.cFileName;
 
-			bool a = rename(path1.str().c_str(), path2.str().c_str());
+	// 		bool a = rename(path1.str().c_str(), path2.str().c_str());
 
-			std::cout<<path1.str().c_str()<<" to "<<path2.str().c_str()<<"\n";
+	// 		std::cout<<path1.str().c_str()<<" to "<<path2.str().c_str()<<"\n";
 
-			count++;
+	// 		count++;
 
-		} 
-		while(FindNextFile(h,&data) && count <= numOfFiles);
-	} 
-	else 
-		std::cout << "Error: No such folder." << std::endl;
+	// 	} 
+	// 	while(FindNextFile(h,&data) && count <= numOfFiles);
+	// } 
+	// else 
+	// 	std::cout << "Error: No such folder." << std::endl;
 	
-	FindClose(h);
+	// FindClose(h);
 	
 	return 0;
 }
@@ -270,173 +270,176 @@ void printCopyRight()
 
 void reconstruct()
 {
+	//TODO
 	//change directory
-	_chdir("reconstruction/");
+	// _chdir("reconstruction/");
 	
-	std::string path;
-	std::string extentsion;
+	// std::string path;
+	// std::string extentsion;
 
-	int num = 0;
-	while(num<2)
-	{
-		std::cout<<"Please specify the number of cameras.\n"; 
-		std::cin>>num;
-	}
+	// int num = 0;
+	// while(num<2)
+	// {
+	// 	std::cout<<"Please specify the number of cameras.\n"; 
+	// 	std::cin>>num;
+	// }
 
-	Reconstructor *reconstructor= new Reconstructor(num);
+	// Reconstructor *reconstructor= new Reconstructor(num);
  
-	char sel=0;
+	// char sel=0;
 
-	//load dataset
-	while( sel!='j' && sel != 't' && sel != 'p')
-	{
-		std::cout<<"Please specify image format, 'j' for jpg, 't' for tif or 'p' for png.\n"; 
-		std::cin>>sel;
-	}
+	// //load dataset
+	// while( sel!='j' && sel != 't' && sel != 'p')
+	// {
+	// 	std::cout<<"Please specify image format, 'j' for jpg, 't' for tif or 'p' for png.\n"; 
+	// 	std::cin>>sel;
+	// }
 	
-	if(sel == 'j')
-	{
-		extentsion = ".jpg";
-	}
-	else if(sel == 't')
-	{
-		extentsion = ".tif";
-	}
-	else if(sel == 'p')
-	{
-		extentsion = ".png";
-	}
+	// if(sel == 'j')
+	// {
+	// 	extentsion = ".jpg";
+	// }
+	// else if(sel == 't')
+	// {
+	// 	extentsion = ".tif";
+	// }
+	// else if(sel == 'p')
+	// {
+	// 	extentsion = ".png";
+	// }
 
-	//set camera's paths
-	for(int i=0; i<num; i++)
-	{
-		std::string p ="dataset/Cam";
-		p += '0'+ (i+1);
-		p += '/';
-		reconstructor->setImgPath(p.c_str(),"",".jpg",i);
-	}
+	// //set camera's paths
+	// for(int i=0; i<num; i++)
+	// {
+	// 	std::string p ="dataset/Cam";
+	// 	p += '0'+ (i+1);
+	// 	p += '/';
+	// 	reconstructor->setImgPath(p.c_str(),"",".jpg",i);
+	// }
 
-	//load projector and camera paramiters
-	reconstructor->loadCameras();
+	// //load projector and camera paramiters
+	// reconstructor->loadCameras();
 
-	//set reconstuction paramiters
-	reconstructor->setBlackThreshold(black_threshold);
-	reconstructor->setWhiteThreshold(white_threshold);
+	// //set reconstuction paramiters
+	// reconstructor->setBlackThreshold(black_threshold);
+	// reconstructor->setWhiteThreshold(white_threshold);
 	
-	if(autoContrast)
-		reconstructor->enableAutoContrast();
-	else
-		reconstructor->disableAutoContrast();
+	// if(autoContrast)
+	// 	reconstructor->enableAutoContrast();
+	// else
+	// 	reconstructor->disableAutoContrast();
 
-	if(saveAutoContrast)
-		reconstructor->enableSavingAutoContrast();
-	else
-		reconstructor->disableSavingAutoContrast();
+	// if(saveAutoContrast)
+	// 	reconstructor->enableSavingAutoContrast();
+	// else
+	// 	reconstructor->disableSavingAutoContrast();
 
-	if(raySampling)
-		reconstructor->enableRaySampling();
-	else
-		reconstructor->disableRaySampling();
+	// if(raySampling)
+	// 	reconstructor->enableRaySampling();
+	// else
+	// 	reconstructor->disableRaySampling();
 
-	//reconstruct
-	reconstructor->runReconstruction();
+	// //reconstruct
+	// reconstructor->runReconstruction();
 	
-	//Export mesh
-	MeshCreator *meshCreator=new MeshCreator(reconstructor->points3DProjView);
+	// //Export mesh
+	// MeshCreator *meshCreator=new MeshCreator(reconstructor->points3DProjView);
 
-	if(exportObj)
-		meshCreator->exportObjMesh("output/projector_view.obj");
+	// if(exportObj)
+	// 	meshCreator->exportObjMesh("output/projector_view.obj");
 
-	if(exportPly || !(exportObj || exportPly || exportPlyGrid))
-		meshCreator->exportPlyMesh("output/projector_view.ply",false);
+	// if(exportPly || !(exportObj || exportPly || exportPlyGrid))
+	// 	meshCreator->exportPlyMesh("output/projector_view.ply",false);
 
-	if(exportPlyGrid)
-		meshCreator->exportPlyMesh("output/projector_view.grid.ply",true);
+	// if(exportPlyGrid)
+	// 	meshCreator->exportPlyMesh("output/projector_view.grid.ply",true);
 
-	delete meshCreator;
-	delete reconstructor;
+	// delete meshCreator;
+	// delete reconstructor;
 
 }
 
 void generateGrayCodes()
 {
+	//TODO
 	//change directory
-	_chdir("gray/");
+	// _chdir("gray/");
 
-	std::cout << "Generating Gray Codes..."  ;
-	GrayCodes *gray=new GrayCodes(proj_w,proj_h);
-	gray->generateGrays();
-	std::cout << "done!\n"  ;
+	// std::cout << "Generating Gray Codes..."  ;
+	// GrayCodes *gray=new GrayCodes(proj_w,proj_h);
+	// gray->generateGrays();
+	// std::cout << "done!\n"  ;
 
-	std::cout << "Saving..."  ;
-	gray->save();
-	std::cout << "done!\n"  ;
+	// std::cout << "Saving..."  ;
+	// gray->save();
+	// std::cout << "done!\n"  ;
 
-	delete gray;
+	// delete gray;
 }
 
 //Yang: Separately calibrate each camera, without projector!!! Why? 
 void calibration()
 {
+	//TODO
 	//change directory
-	_chdir("calibration/");
+	// _chdir("calibration/");
 	
-	int sel = 0;
-	while( sel <= 0)
-	{
-		std::cout<<"Please specify how many cameras you want to calibrate "; 
-		std::cin>>sel;
-	}
+	// int sel = 0;
+	// while( sel <= 0)
+	// {
+	// 	std::cout<<"Please specify how many cameras you want to calibrate "; 
+	// 	std::cin>>sel;
+	// }
 
-	for(int i=1; i<=sel; i++)
-	{
-		CameraCalibration *calib = new CameraCalibration();
+	// for(int i=1; i<=sel; i++)
+	// {
+	// 	CameraCalibration *calib = new CameraCalibration();
 
-		std::string path = "camera";
-		path += '0' + i;
-		path += '/';
+	// 	std::string path = "camera";
+	// 	path += '0' + i;
+	// 	path += '/';
 
-		//load images
-		calib->loadCameraImgs(path.c_str());
+	// 	//load images
+	// 	calib->loadCameraImgs(path.c_str());
 	
-		calib->extractImageCorners();
-		calib->calibrateCamera();//Yang:intrinsic params: focus length and principle cener, distortion
+	// 	calib->extractImageCorners();
+	// 	calib->calibrateCamera();//Yang:intrinsic params: focus length and principle cener, distortion
 	
-		calib->findCameraExtrisics();//Yang:extrinsic params: rotation and translation 
+	// 	calib->findCameraExtrisics();//Yang:extrinsic params: rotation and translation 
 
-		//export txt files
-		std::string file_name;
+	// 	//export txt files
+	// 	std::string file_name;
 		
-		path += "output/";
+	// 	path += "output/";
 
-		file_name =  path.c_str();
-		file_name += "cam_matrix.txt";
+	// 	file_name =  path.c_str();
+	// 	file_name += "cam_matrix.txt";
 
-		calib->exportTxtFiles(file_name.c_str(),CAMCALIB_OUT_MATRIX);
+	// 	calib->exportTxtFiles(file_name.c_str(),CAMCALIB_OUT_MATRIX);
 
-		file_name =  path.c_str();
-		file_name += "cam_distortion.txt";
+	// 	file_name =  path.c_str();
+	// 	file_name += "cam_distortion.txt";
 
-		calib->exportTxtFiles(file_name.c_str(),CAMCALIB_OUT_DISTORTION);
+	// 	calib->exportTxtFiles(file_name.c_str(),CAMCALIB_OUT_DISTORTION);
 
-		file_name =  path.c_str();
-		file_name += "cam_rotation_matrix.txt";
+	// 	file_name =  path.c_str();
+	// 	file_name += "cam_rotation_matrix.txt";
 
-		calib->exportTxtFiles(file_name.c_str(),CAMCALIB_OUT_ROTATION);
+	// 	calib->exportTxtFiles(file_name.c_str(),CAMCALIB_OUT_ROTATION);
 
-		file_name =  path.c_str();
-		file_name += "cam_trans_vectror.txt";
+	// 	file_name =  path.c_str();
+	// 	file_name += "cam_trans_vectror.txt";
 
-		calib->exportTxtFiles(file_name.c_str(),CAMCALIB_OUT_TRANSLATION);
+	// 	calib->exportTxtFiles(file_name.c_str(),CAMCALIB_OUT_TRANSLATION);
 
-		file_name =  path.c_str();
-		file_name += "calib.xml";
-		calib->saveCalibData(file_name.c_str());
+	// 	file_name =  path.c_str();
+	// 	file_name += "calib.xml";
+	// 	calib->saveCalibData(file_name.c_str());
 
-		// show data on consol
-		calib->printData();
-	}
-	getchar();
+	// 	// show data on consol
+	// 	calib->printData();
+	// }
+	// getchar();
 }
 
 
@@ -534,30 +537,30 @@ void captureCalibrationImagesAndScan()
 
 void rename()
 {
+	//TODO
+	// int sel = 0;
+	// while( sel <= 0)
+	// {
+	// 	std::cout<<"Please specify how many cameras you are using "; 
+	// 	std::cin>>sel;
+	// }
 
-	int sel = 0;
-	while( sel <= 0)
-	{
-		std::cout<<"Please specify how many cameras you are using "; 
-		std::cin>>sel;
-	}
+	// _chdir("reconstruction/dataSet/");
 
-	_chdir("reconstruction/dataSet/");
+	// for(int i=0; i<sel; i++)
+	// {
+	// 	std::string p = "cam";
+	// 	p += '0'+(i+1);
+	// 	p += '/';
+	// 	_chdir(p.c_str());
+	// 	renameDataSet();
+	// 	_chdir("../");
 
-	for(int i=0; i<sel; i++)
-	{
-		std::string p = "cam";
-		p += '0'+(i+1);
-		p += '/';
-		_chdir(p.c_str());
-		renameDataSet();
-		_chdir("../");
-
-	}
+	// }
 
 }
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
 	
 	printCopyRight();

@@ -26,7 +26,7 @@ PointCloudImage::PointCloudImage(int imageW,int imageH, bool colorFlag_)
 		color = cv::Mat(h,w,CV_32FC3,cv::Scalar(0));
 	}
 	else
-		color = NULL;
+		color = cv::Mat();
 
 	numOfPointsForPixel =  cv::Mat(h,w,CV_8U,cv::Scalar(0));
 }
@@ -151,7 +151,8 @@ bool PointCloudImage::addPoint(int i_w, int j_h, cv::Point3f point)
 	if(num == 0)
 		return setPoint(i_w,j_h,point);
 
-	cv::Point3f p = Utilities::matGet3D(points,i_w,j_h);
+	cv::Vec3d v = Utilities::matGet3D(points,i_w,j_h);
+	cv::Point3f p( v );
 	Utilities::matSet3D(points,i_w,j_h,(cv::Vec3f)(point + p));
 
 	numOfPointsForPixel.at<uchar>(j_h,i_w) = num + 1;

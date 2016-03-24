@@ -14,11 +14,11 @@
 
 VirtualCamera::VirtualCamera(void)
 {
-	distortion=NULL;
-	rotationMatrix=NULL;
-	translationVector=NULL;
-	cameraMatrix=NULL;
-	projectionMatrix=NULL;
+	distortion=cv::Mat();
+	rotationMatrix=cv::Mat();
+	translationVector=cv::Mat();
+	cameraMatrix=cv::Mat();
+	projectionMatrix=cv::Mat();
 	fc.x=0;
 	fc.y=0;
 	cc.x=0;

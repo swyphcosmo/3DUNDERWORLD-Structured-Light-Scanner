@@ -13,7 +13,7 @@
 #define __SLS_2012_H__
 
 #include "cv.h"
-#include <direct.h>
+// #include <direct.h>
 
 extern int proj_h;
 extern int proj_w;

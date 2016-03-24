@@ -474,38 +474,38 @@ int Utilities::accessMat(cv::Mat m, int x, int y)
 
 void Utilities::folderScan(const char *path)
 {	
+	//TODO
+	// _chdir(path);
 
-	_chdir(path);
+	// WIN32_FIND_DATA data;
+	// HANDLE h;
 
-	WIN32_FIND_DATA data;
-	HANDLE h;
+	// h = FindFirstFile( L"*.*", &data);
 
-	h = FindFirstFile( L"*.*", &data);
+	// if( h!=INVALID_HANDLE_VALUE ) 
+	// {
+	// 	int numOfFiles=0;
 
-	if( h!=INVALID_HANDLE_VALUE ) 
-	{
-		int numOfFiles=0;
+	// 	do
+	// 	{
+	// 		char*  nPtr = new char [lstrlen( data.cFileName ) + 1];
 
-		do
-		{
-			char*  nPtr = new char [lstrlen( data.cFileName ) + 1];
+	// 		for( int i = 0; i < lstrlen( data.cFileName ); i++ )
+	// 			nPtr[i] = char( data.cFileName[i] );
 
-			for( int i = 0; i < lstrlen( data.cFileName ); i++ )
-				nPtr[i] = char( data.cFileName[i] );
+	// 		nPtr[lstrlen( data.cFileName )] = '\0';
 
-			nPtr[lstrlen( data.cFileName )] = '\0';
+	// 		std::cout<<nPtr<<"\n";
 
-			std::cout<<nPtr<<"\n";
+	// 	} 
+	// 	while(FindNextFile(h,&data));
 
-		} 
-		while(FindNextFile(h,&data));
-
-	}
+	// }
 
 
-	for(int i=0; path[i]!=NULL; i++)
-	{
-		if(path[i] == '/')
-			_chdir("../");
-	}
+	// for(int i=0; path[i]!=NULL; i++)
+	// {
+	// 	if(path[i] == '/')
+	// 		_chdir("../");
+	// }
 }
